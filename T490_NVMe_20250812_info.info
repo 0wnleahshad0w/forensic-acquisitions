@@ -1,0 +1,176 @@
+
+GUYMAGER ACQUISITION INFO FILE
+==============================
+
+Guymager
+========
+
+Version            : 0.8.13-1                                                                                       
+Version timestamp  : 2021-08-04-17.00.00 UTC                                                                        
+Compiled with      : gcc 8.3.0                                                                                      
+libewf version     : 20140804 (not used as Guymager is configured to use its own EWF module)                        
+libguytools version: 2.1.0                                                                                          
+Host name          : caine                                                                                          
+Domain name        : (none)                                                                                         
+System             : Linux caine 6.8.0-52-generic #53-Ubuntu SMP PREEMPT_DYNAMIC Sat Jan 11 00:06:25 UTC 2025 x86_64
+
+
+Device information
+==================
+Command executed: bash -c "search="`basename /dev/nvme0n1`: H..t P.......d A..a de.....d" && dmesg | grep -A3 "$search" || echo "No kernel HPA messages for /dev/nvme0n1""
+Information returned:
+----------------------------------------------------------------------------------------------------
+   No kernel HPA messages for /dev/nvme0n1
+
+Command executed: bash -c "smartctl -s on /dev/nvme0n1 ; smartctl -a /dev/nvme0n1"
+Information returned:
+----------------------------------------------------------------------------------------------------
+   smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-52-generic] (local build)
+   Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+   
+   NVMe device successfully opened
+   
+   Use 'smartctl -a' (or '-x') to print SMART (and more) information
+   
+   smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-52-generic] (local build)
+   Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+   
+   === START OF INFORMATION SECTION ===
+   Model Number:                       PM9A1 NVMe Samsung 1024GB
+   Serial Number:                      S6H2NX0T314609
+   Firmware Version:                   36308229
+   PCI Vendor/Subsystem ID:            0x144d
+   IEEE OUI Identifier:                0x002538
+   Total NVM Capacity:                 1.024.209.543.168 [1,02 TB]
+   Unallocated NVM Capacity:           0
+   Controller ID:                      6
+   NVMe Version:                       1.3
+   Number of Namespaces:               1
+   Namespace 1 Size/Capacity:          1.024.209.543.168 [1,02 TB]
+   Namespace 1 Utilization:            53.200.777.216 [53,2 GB]
+   Namespace 1 Formatted LBA Size:     512
+   Local Time is:                      Tue Aug 12 20:13:51 2025 BST
+   Firmware Updates (0x16):            3 Slots, no Reset required
+   Optional Admin Commands (0x0017):   Security Format Frmw_DL Self_Test
+   Optional NVM Commands (0x0057):     Comp Wr_Unc DS_Mngmt Sav/Sel_Feat Timestmp
+   Log Page Attributes (0x1e):         Cmd_Eff_Lg Ext_Get_Lg Telmtry_Lg Pers_Ev_Lg
+   Maximum Data Transfer Size:         128 Pages
+   Warning  Comp. Temp. Threshold:     83 Celsius
+   Critical Comp. Temp. Threshold:     85 Celsius
+   Namespace 1 Features (0x08):        No_ID_Reuse
+   
+   Supported Power States
+   St Op     Max   Active     Idle   RL RT WL WT  Ent_Lat  Ex_Lat
+    0 +     8.49W       -        -    0  0  0  0        0       0
+    1 +     4.48W       -        -    1  1  1  1        0     200
+    2 +     3.18W       -        -    2  2  2  2        0    1000
+    3 -   0.0400W       -        -    3  3  3  3     2000    2000
+    4 -   0.0050W       -        -    4  4  4  4      500    9500
+   
+   Supported LBA Sizes (NSID 0x1)
+   Id Fmt  Data  Metadt  Rel_Perf
+    0 +     512       0         0
+   
+   === START OF SMART DATA SECTION ===
+   SMART overall-health self-assessment test result: PASSED
+   
+   SMART/Health Information (NVMe Log 0x02)
+   Critical Warning:                   0x00
+   Temperature:                        32 Celsius
+   Available Spare:                    100%
+   Available Spare Threshold:          50%
+   Percentage Used:                    21%
+   Data Units Read:                    44.146.040 [22,6 TB]
+   Data Units Written:                 144.358.057 [73,9 TB]
+   Host Read Commands:                 711.681.008
+   Host Write Commands:                2.582.284.370
+   Controller Busy Time:               18.931
+   Power Cycles:                       845
+   Power On Hours:                     5.563
+   Unsafe Shutdowns:                   89
+   Media and Data Integrity Errors:    0
+   Error Information Log Entries:      0
+   Warning  Comp. Temperature Time:    0
+   Critical Comp. Temperature Time:    0
+   Temperature Sensor 1:               32 Celsius
+   Temperature Sensor 2:               30 Celsius
+   
+   Error Information (NVMe Log 0x01, 16 of 64 entries)
+   No Errors Logged
+   
+   Read Self-test Log failed: Invalid Field in Command (0x002)
+
+Command executed: bash -c "hdparm -I /dev/nvme0n1"
+Information returned:
+----------------------------------------------------------------------------------------------------
+   /dev/nvme0n1:
+
+Command executed: bash -c "CIDFILE=/sys/block/$(basename /dev/nvme0n1)/device/cid; echo -n "CID: " ; if [ -e $CIDFILE ] ; then cat $CIDFILE  ; else echo "not available" ; fi "
+Information returned:
+----------------------------------------------------------------------------------------------------
+   CID: not available
+
+Hidden areas: unknown
+
+
+Acquisition
+===========
+
+Linux device            : /dev/nvme0n1                                                                                                                                      
+Device size             : 1024209543168 (1,0TB)                                                                                                                             
+Format                  : Expert Witness Format, sub-format Guymager - file extension is .Exx                                                                               
+Image meta data         
+   Case number          : 20250812_T490                                                                                                                                     
+   Evidence number      : 1                                                                                                                                                 
+   Examiner             : 0wnleahshad0w                                                                                                                                     
+   Description          : Forensic acquisition of Lenovo T490 1Tb NVMe (Samsung PM9A1) for training and analysis                                                            
+   Notes                : Source: NVMe Samsung PM9A1, 1024GB, Serial: S6H2NX314609, NVMe PCIe Gen 4. device recieved for digital forensic training . Original owner unknown.
+Image path and file name: /mnt/sandisk/T490_NVMe_20250812.Exx                                                                                                               
+Info  path and file name: /mnt/sandisk/T490_NVMe_20250812_info.info                                                                                                         
+Hash calculation        : MD5, SHA-1 and SHA-256                                                                                                                            
+Source verification     : on                                                                                                                                                
+Image verification      : on                                                                                                                                                
+
+No bad sectors encountered during acquisition.
+No bad sectors encountered during verification.
+State: Finished successfully
+
+MD5 hash                   : 9b1246db7c7203a38e3062e6458d660c                                
+MD5 hash verified source   : 9b1246db7c7203a38e3062e6458d660c                                
+MD5 hash verified image    : 9b1246db7c7203a38e3062e6458d660c                                
+SHA1 hash                  : b1e9f868508dfbaa8babe52323adca0b2d4f810d                        
+SHA1 hash verified source  : b1e9f868508dfbaa8babe52323adca0b2d4f810d                        
+SHA1 hash verified image   : b1e9f868508dfbaa8babe52323adca0b2d4f810d                        
+SHA256 hash                : 3bd5fd4456ca21b81e0fe1740ca82d5e2918b039a366f857e385306208f31b0f
+SHA256 hash verified source: 3bd5fd4456ca21b81e0fe1740ca82d5e2918b039a366f857e385306208f31b0f
+SHA256 hash verified image : 3bd5fd4456ca21b81e0fe1740ca82d5e2918b039a366f857e385306208f31b0f
+Source verification OK. The device delivered the same data during acquisition and verification.
+Image verification OK. The image contains exactly the data that was written.
+
+Acquisition started : 2025-08-12 20:13:51 (ISO format YYYY-MM-DD HH:MM:SS)   
+Verification started: 2025-08-12 22:34:47                                    
+Ended               : 2025-08-13 01:16:13 (5 hours, 2 minutes and 21 seconds)
+Acquisition speed   : 115.51 MByte/s (2 hours, 20 minutes and 56 seconds)    
+Verification speed  : 100.85 MByte/s (2 hours, 41 minutes and 25 seconds)    
+
+
+Generated image files and their MD5 hashes
+==========================================
+
+No MD5 hashes available (configuration parameter CalcImageFileMD5 is off)
+MD5                               Image file
+n/a                               T490_NVMe_20250812.E01
+n/a                               T490_NVMe_20250812.E02
+n/a                               T490_NVMe_20250812.E03
+n/a                               T490_NVMe_20250812.E04
+n/a                               T490_NVMe_20250812.E05
+n/a                               T490_NVMe_20250812.E06
+n/a                               T490_NVMe_20250812.E07
+n/a                               T490_NVMe_20250812.E08
+n/a                               T490_NVMe_20250812.E09
+n/a                               T490_NVMe_20250812.E10
+n/a                               T490_NVMe_20250812.E11
+n/a                               T490_NVMe_20250812.E12
+n/a                               T490_NVMe_20250812.E13
+n/a                               T490_NVMe_20250812.E14
+n/a                               T490_NVMe_20250812.E15
